@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "presets/basic.json",
+    "presets/programming.json",
+    "presets/sushida-10.json",
+    "presets/sushida-11.json",
+    "presets/sushida-12.json",
+    "presets/sushida-13.json",
+    "presets/sushida-14.json"
+  ]
+}

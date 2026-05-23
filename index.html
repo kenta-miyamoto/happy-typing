@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Happy Typing（ハッピータイピング）</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="brand-lockup">
+          <button class="brand-button" id="logoToPresets" type="button" aria-label="一覧へ戻る">
+            <img class="brand-logo" src="assets/enter-kun-logo.png" alt="Happy Typing" height="200">
+          </button>
+        </div>
+        <button class="icon-button" id="soundToggle" type="button" aria-label="サウンド切り替え" title="サウンド切り替え">
+          <span id="soundIcon">♪</span>
+        </button>
+      </header>
+
+      <section class="view is-active" id="presetView" aria-labelledby="presetTitle">
+        <div class="section-heading">
+          <h2 id="presetTitle">コースを選択</h2>
+          <p>練習したいワードセットを選んで開始します。</p>
+        </div>
+        <div class="preset-grid" id="presetList"></div>
+      </section>
+
+      <section class="view" id="playView" aria-labelledby="playTitle">
+        <div class="play-topbar">
+          <button class="text-button" id="backToPresets" type="button">一覧へ戻る</button>
+          <div class="progress-label" id="progressLabel"></div>
+        </div>
+
+        <div class="meter" aria-hidden="true">
+          <div class="meter-fill" id="progressFill"></div>
+        </div>
+
+        <div class="play-stage" id="playStage" tabindex="0">
+          <p class="mode-label" id="modeLabel"></p>
+          <div class="ready-panel" id="readyPanel">
+            <h2>準備完了</h2>
+            <p>Space でスタート</p>
+            <span>Escape で最初からやり直し</span>
+          </div>
+          <div class="typing-panel" id="typingPanel">
+            <p class="kana-text" id="kanaText"></p>
+            <h2 class="japanese-text" id="playTitle"></h2>
+            <div class="romaji-line" id="romajiLine" aria-label="入力するローマ字"></div>
+            <p class="feedback" id="feedbackText" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div>
+            <span class="stat-label">タイム</span>
+            <strong id="timeCount">0.0</strong>
+          </div>
+          <div>
+            <span class="stat-label">ミスあり</span>
+            <strong id="missCount">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">入力</span>
+            <strong id="typedCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="resultView" aria-labelledby="resultTitle">
+        <div class="section-heading">
+          <p class="eyebrow" id="resultPresetName"></p>
+          <h2 id="resultTitle">結果</h2>
+        </div>
+
+        <div class="result-summary">
+          <div>
+            <span class="stat-label">出題数</span>
+            <strong id="totalResult">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">クリア</span>
+            <strong id="clearResult">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">ミスあり</span>
+            <strong id="missResult">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">タイム</span>
+            <strong id="timeResult">0.0</strong>
+          </div>
+          <div>
+            <span class="stat-label">平均毎秒タイプ数</span>
+            <strong id="speedResult">0.00</strong>
+          </div>
+        </div>
+
+        <div class="miss-panel">
+          <h3>再挑戦対象</h3>
+          <ul class="miss-list" id="missList"></ul>
+        </div>
+
+        <div class="actions">
+          <button class="primary-button" id="retryButton" type="button">ミスしたワードだけ再挑戦</button>
+          <button class="secondary-button" id="resultToPresets" type="button">一覧へ戻る</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
