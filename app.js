@@ -187,6 +187,18 @@ function startQuestion() {
 }
 
 function handleKeydown(event) {
+  if (elements.resultView.classList.contains("is-active")) {
+    if (event.code === "Space" && !event.metaKey && !event.ctrlKey && !event.altKey) {
+      event.preventDefault();
+      if (state.missedItems.size > 0) {
+        retryMissedItems();
+      } else {
+        showPresetView();
+      }
+    }
+    return;
+  }
+
   if (!elements.playView.classList.contains("is-active")) {
     return;
   }
